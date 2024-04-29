@@ -29,6 +29,8 @@ let data
     const loginPage = new LoginPage();
     cy.visit("https://automationexercise.com/");
     homePage.signIn();
-    loginPage.loginUser("test", "test");
+    cy.get(this.accountCreatedText)
+      .contains("Account Created!")
+      .should("be.visible");
   });
 });
