@@ -7,7 +7,7 @@ cypress-tests:
   stage: test
   script:
     - npm install 
-    - npx cypress --headless --browser chrome run
+    - npx cypress run --headless --browser chrome
 
   artifacts:
     paths:
