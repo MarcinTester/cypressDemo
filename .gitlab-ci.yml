@@ -11,4 +11,5 @@ cypress-tests:
 
   artifacts:
     paths:
-      - cypress/screenshots 
+      - cypress/screenshots
+    expire_in: 1 day
