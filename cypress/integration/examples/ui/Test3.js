@@ -6,7 +6,7 @@ describe("test", function () {
     const homePage = new HomePage();
     const loginPage = new LoginPage();
     cy.visit("https://automationexercise.com/");
-    homePage.getSignIn();
+    homePage.signIn();
     loginPage.registerNewUser();
   });
 });
