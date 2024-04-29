@@ -21,7 +21,14 @@ let data
     const loginPage = new LoginPage();
     cy.visit("https://automationexercise.com/");
     homePage.signIn();
-    console.log(data.email)
     loginPage.loginUser(data.email, data.password);
+  });
+
+  it("Fail test", () => {
+    const homePage = new HomePage();
+    const loginPage = new LoginPage();
+    cy.visit("https://automationexercise.com/");
+    homePage.signIn();
+    loginPage.loginUser("test", "test");
   });
 });
