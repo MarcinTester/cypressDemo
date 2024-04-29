@@ -1,0 +1,10 @@
+image: cypress/base:14
+
+stages:
+  - test
+
+cypress-tests:
+  stage: test
+  script:
+    - npm install 
+    - npx cypress run
