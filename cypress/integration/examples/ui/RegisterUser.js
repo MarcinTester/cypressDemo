@@ -2,31 +2,28 @@
 import HomePage from "../../../support/pages/HomePage";
 import LoginPage from "../../../support/pages/LoginPage";
 describe("test", function () {
-let data
+  let data
+  const homePage = new HomePage();
+  const loginPage = new LoginPage();
   before(function () {
-    cy.fixture('testData').then(function(testData) {
+
+    cy.fixture('testData').then(function (testData) {
       data = testData
     })
   })
   it("Register user", () => {
-    const homePage = new HomePage();
-    const loginPage = new LoginPage();
     cy.visit("https://automationexercise.com/");
     homePage.signIn();
     loginPage.registerNewUser();
   });
 
   it("Login user", () => {
-    const homePage = new HomePage();
-    const loginPage = new LoginPage();
     cy.visit("https://automationexercise.com/");
     homePage.signIn();
     loginPage.loginUser(data.email, data.password);
   });
 
   it("Fail test", () => {
-    const homePage = new HomePage();
-    const loginPage = new LoginPage();
     cy.visit("https://automationexercise.com/");
     homePage.signIn();
     cy.get(this.accountCreatedText)
