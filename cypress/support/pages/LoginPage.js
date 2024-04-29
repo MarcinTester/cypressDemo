@@ -1,26 +1,25 @@
 class LoginPage {
 
-    username = '[data-qa="signup-name"]';
-    email = '[data-qa="signup-email"]';
-    signUpButton = '[data-qa="signup-button"]';
-    password = '[type="password"]';
-    firstName = '[data-qa="first_name"]';
-    lastName = '[data-qa="last_name"]';
-    address = '[data-qa="address"]';
-    state = '[data-qa="state"]';
-    city = '[data-qa="city"]';
-    zipcode = '[data-qa="zipcode"]';
-    phoneNumber = '#mobile_number';
-    submitButton = '[type="submit"]';
-    accountCreatedText = '[data-qa="account-created"]';
-    radioButton = '[type="radio"]';
-
-
-
+  username = '[data-qa="signup-name"]';
+  signUpemail = '[data-qa="signup-email"]';
+  loginEmail = '[data-qa="login-email"]';
+  signUpButton = '[data-qa="signup-button"]';
+  loginPassword = '[data-qa="login-password"]';
+  loginButton = '[data-qa="login-button"]';
+  password = '[type="password"]';
+  firstName = '[data-qa="first_name"]';
+  lastName = '[data-qa="last_name"]';
+  address = '[data-qa="address"]';
+  state = '[data-qa="state"]';
+  city = '[data-qa="city"]';
+  zipcode = '[data-qa="zipcode"]';
+  phoneNumber = '#mobile_number';
+  submitButton = '[type="submit"]';
+  accountCreatedText = '[data-qa="account-created"]';
+  radioButton = '[type="radio"]';
 
   registerNewUser() {
-    cy.get(this.username).type("11!tester1122");
-    cy.get(this.email).type("11!tester11324@gmial.com");
+    cy.newUser();
     cy.get(this.signUpButton).click();
     cy.get(this.radioButton).first().check();
     cy.get(this.password).type("test1234!");
@@ -36,6 +35,11 @@ class LoginPage {
       .contains("Account Created!")
       .should("be.visible");
   }
-}
 
+  loginUser(email, password) {
+    cy.get(this.loginEmail).type(email);
+    cy.get(this.loginPassword).type(password);
+    cy.get(this.loginButton).click()
+  }
+}
 export default LoginPage;
