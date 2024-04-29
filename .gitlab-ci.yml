@@ -8,3 +8,7 @@ cypress-tests:
   script:
     - npm install 
     - npx cypress run
+
+  artifacts:
+    paths:
+      - cypress/screenshots 
