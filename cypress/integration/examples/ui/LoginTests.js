@@ -12,19 +12,25 @@ describe("test", function () {
     })
   })
   it("Register user", () => {
-    cy.visit("https://automationexercise.com/");
+    cy.visit(data.baseURL);
     homePage.signIn();
     loginPage.registerNewUser();
   });
 
   it("Login user", () => {
-    cy.visit("https://automationexercise.com/");
+    cy.visit(data.baseURL);
     homePage.signIn();
     loginPage.loginUser(data.email, data.password);
   });
 
+  it("Login user with wrong password", () => {
+    cy.visit(data.baseURL);
+    homePage.signIn();
+    loginPage.loginUser(data.email, data.incorrcetPassword);
+  });
+
   it("Fail test", () => {
-    cy.visit("https://automationexercise.com/");
+    cy.visit(data.baseURL);
     homePage.signIn();
     cy.get(this.accountCreatedText)
       .contains("Account Created!")

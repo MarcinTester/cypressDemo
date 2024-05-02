@@ -3,27 +3,23 @@
 describe('apiTest', function () {
     var result
     var titleOfPosts = new ArrayBuffer()
-    it('apiTest Example', () => {
-        result = cy.request("https://jsonplaceholder.typicode.com/posts");
+    it('Add to card', () => {
+        result = cy.request("https://automationexercise.com/add_to_cart/1");
         result.its("status").should("equal", 200)
     })
     it('apiTest Validate example', () => {
         cy.request({
             method: "GET",
-            url: "https://jsonplaceholder.typicode.com/posts",
+            url: "https://automationexercise.com/add_to_cart/1",
             headers: {
                 accept: "application/json"
             }
-        }).then(response => {
+        }).then(response => {   
             let body = JSON.parse(JSON.stringify(response.body))
-            expect(response.statusCode).to.eq(200)
+            expect(response.status).to.eq(200)
+            expect(body).to.eq("Added To Cart")
+            cy.log(response.status)
             cy.log(body)
-
-            console.log(body[0])
-            console.log(body[0].body)
-            console.log(body[0].id)
-            console.log(body[0].title)
-            console.log(body[0].userId)
             })
         })
     })

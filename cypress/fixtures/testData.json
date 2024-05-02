@@ -2,5 +2,7 @@
   "username": "61559",
   "email": "61559@gmial.com",
   "body": "Fixtures are a great way to mock data for responses to routes",
-  "password": "test1234!"
+  "password": "test1234!",
+  "incorrcetPassword": "test1234!2",
+  "baseURL": "https://automationexercise.com/"
 }
