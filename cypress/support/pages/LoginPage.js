@@ -1,6 +1,8 @@
 class LoginPage {
-
+  logoutButton = '[href="/logout"]';
+  failedLoginText = ".login-form > form > p";
   username = '[data-qa="signup-name"]';
+  loggedAs = ":nth-child(10) > a";
   signUpemail = '[data-qa="signup-email"]';
   loginEmail = '[data-qa="login-email"]';
   signUpButton = '[data-qa="signup-button"]';
@@ -13,7 +15,7 @@ class LoginPage {
   state = '[data-qa="state"]';
   city = '[data-qa="city"]';
   zipcode = '[data-qa="zipcode"]';
-  phoneNumber = '#mobile_number';
+  phoneNumber = "#mobile_number";
   submitButton = '[type="submit"]';
   accountCreatedText = '[data-qa="account-created"]';
   radioButton = '[type="radio"]';
@@ -36,10 +38,19 @@ class LoginPage {
       .should("be.visible");
   }
 
-  loginUser(email, password) {
+  loginUser(email, password, username) {
     cy.get(this.loginEmail).type(email);
     cy.get(this.loginPassword).type(password);
-    cy.get(this.loginButton).click()
+    cy.get(this.loginButton).click();
+    cy.checkText(this.loggedAs, "Logged in as " + username);
+    cy.get(this.logoutButton).should("be.visible");
+  }
+
+  loginUserFail(email, password) {
+    cy.get(this.loginEmail).type(email);
+    cy.get(this.loginPassword).type(password);
+    cy.get(this.loginButton).click();
+    cy.checkText(this.failedLoginText, "Your email or password is incorrect!");
   }
 }
 export default LoginPage;
