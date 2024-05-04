@@ -58,6 +58,11 @@ class LoginPage {
       "Your email or password is incorrect!"
     );
   }
+
+  logoutUser() {
+    this.elements.logoutButton().click();
+    this.elements.signUpButton().should("be.visible");
+  }
 }
 
 export default LoginPage;

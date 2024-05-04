@@ -23,6 +23,13 @@ describe("test", function () {
     loginPage.loginUser(data.email, data.password, data.username);
   });
 
+  it.only("Logout user", () => {
+    cy.visit(data.baseURL);
+    homePage.signIn();
+    loginPage.loginUser(data.email, data.password, data.username);
+    loginPage.logoutUser()
+  });
+
   it("Login user with wrong password", () => {
     cy.visit(data.baseURL);
     homePage.signIn();
