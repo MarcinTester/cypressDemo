@@ -31,7 +31,7 @@ describe("test", function () {
     productPage.searchAndAddProducts(data.products[2]);
   });
 
-  it.only("Buy product", () => {
+  it("Buy product", () => {
     homePage.openProducts();
     productPage.searchAndAddProducts(data.products[0]);
     homePage.openCart();

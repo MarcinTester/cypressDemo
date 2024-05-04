@@ -23,7 +23,7 @@ describe("test", function () {
     loginPage.loginUser(data.email, data.password, data.username);
   });
 
-  it.only("Logout user", () => {
+  it("Logout user", () => {
     cy.visit(data.baseURL);
     homePage.signIn();
     loginPage.loginUser(data.email, data.password, data.username);
