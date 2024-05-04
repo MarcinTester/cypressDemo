@@ -8,11 +8,13 @@ describe("apiTest", function () {
       data = testData;
     });
   });
+
   it("apiTest Example", () => {
     result = cy.request(data.baseURL + "/api/brandsList");
     cy.log(result);
     result.its("status").should("equal", 200);
   });
+
   it("apiTest Validate example", () => {
     cy.request({
       method: "GET",

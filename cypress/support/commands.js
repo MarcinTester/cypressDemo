@@ -14,16 +14,14 @@ Cypress.Commands.add("createUserName", () => {
 Cypress.Commands.add("newUser", () => {
   cy.createUserName().then((result) => {
     console.log(result);
-    cy.get(loginPage.username).type(result);
-    cy.get(loginPage.signUpemail).type(result + "@gmial.com");
+    loginPage.elements.username().type(result);
+    loginPage.elements.signUpemail().type(result + "@gmial.com");
   });
 });
 
 Cypress.Commands.add("checkText", (locator, checkText) => {
-  cy.get(locator)
-    .invoke("text")
-    .then((text) => {
-      cy.log("Text from element:", text);
-      expect(text).to.contain(checkText);
-    });
+  locator.invoke("text").then((text) => {
+    cy.log("Text from element:", text);
+    expect(text).to.contain(checkText);
+  });
 });

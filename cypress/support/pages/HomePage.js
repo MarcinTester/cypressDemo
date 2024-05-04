@@ -1,16 +1,24 @@
 class HomePage {
-  productsButton = '[href="/products"]';
+  elements = {
+    productsButton: () => cy.get('[href="/products"]'),
+    cartButton: () => cy.get('[href="/view_cart"]'),
+    signInButton: () => cy.get('[class="fa fa-lock"]'),
+  };
 
   signIn() {
-    cy.get('[class="fa fa-lock"]').click();
+    this.elements.signInButton().click();
   }
 
-  products() {
-    cy.get(this.productsButton).click();
+  openProducts() {
+    this.elements.productsButton().click();
+  }
+
+  openCart() {
+    this.elements.cartButton().first().click();
   }
 
   failTest() {
-    cy.get(this.productsButton).should("not.be.visible");
+    this.elements.productsButton().should("not.be.visible");
   }
 }
 

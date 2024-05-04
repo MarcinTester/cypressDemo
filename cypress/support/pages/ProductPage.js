@@ -1,31 +1,31 @@
 class ProductPage {
-  productsButton = '[href="/products"]';
-  searchBar = "#search_product";
-  searchButton = '[id="submit_search"]';
-  productName = '.product-image-wrapper > div > div > p';
-  productCard = '.product-image-wrapper';
-  addToCart = '.productinfo > .btn';
-  addedCartTitle = '.modal-title';
-  continueShoppingButton = '[class="btn btn-success close-modal btn-block"]';
-
+  elements = {
+    searchBar: () => cy.get("#search_product"),
+    searchButton: () => cy.get('[id="submit_search"]'),
+    productName: () => cy.get(".product-image-wrapper > div > div > p"),
+    productCard: () => cy.get(".product-image-wrapper"),
+    addToCart: () => cy.get(".productinfo > .btn"),
+    addedCartTitle: () => cy.get(".modal-title"),
+    continueShoppingButton: () =>
+      cy.get('[class="btn btn-success close-modal btn-block"]'),
+  };
 
   searchProducts(product) {
-    cy.get(this.searchBar).clear();
-    cy.get(this.searchBar).type(product);
-    cy.get(this.searchButton).click();
-    cy.get(this.productName).contains(product).should("be.visible");
-    cy.get(this.productCard).should("be.visible");
+    this.elements.searchBar().clear().type(product);
+    this.elements.searchButton().click();
+    this.elements.productName().contains(product).should("be.visible");
+    this.elements.productCard().should("be.visible");
   }
 
   searchAndAddProducts(product) {
-    cy.get(this.searchBar).clear();
-    cy.get(this.searchBar).type(product);
-    cy.get(this.searchButton).click();
-    cy.get(this.productName).contains(product).should("be.visible");
-    cy.get(this.productCard).should("be.visible");
-    cy.get(this.addToCart).click();
-    cy.get(this.addedCartTitle).contains('Added!').should("be.visible");
-    cy.get(this.continueShoppingButton).click()
+    this.elements.searchBar().clear().type(product);
+    this.elements.searchButton().click();
+    this.elements.productName().contains(product).should("be.visible");
+    this.elements.productCard().should("be.visible");
+    this.elements.addToCart().click();
+    this.elements.addedCartTitle().contains("Added!").should("be.visible");
+    this.elements.continueShoppingButton().click();
   }
 }
+
 export default ProductPage;

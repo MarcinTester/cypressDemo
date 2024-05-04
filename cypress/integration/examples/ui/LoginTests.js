@@ -31,6 +31,6 @@ describe("test", function () {
 
   it("Fail test", () => {
     cy.visit(data.baseURL);
-    homePage.failTest()
+    homePage.failTest();
   });
 });

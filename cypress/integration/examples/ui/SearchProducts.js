@@ -16,7 +16,7 @@ describe("test", function () {
 
   it("Search product", () => {
     cy.visit(data.baseURL);
-    homePage.products();
+    homePage.openProducts();
     productPage.searchProducts(data.products[0]);
     productPage.searchProducts(data.products[1]);
     productPage.searchProducts(data.products[2]);
