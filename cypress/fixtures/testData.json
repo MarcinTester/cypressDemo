@@ -4,5 +4,6 @@
   "body": "Fixtures are a great way to mock data for responses to routes",
   "password": "test1234!",
   "incorrcetPassword": "test1234!2",
-  "baseURL": "https://automationexercise.com/"
+  "baseURL": "https://automationexercise.com/",
+  "products": ["Blue Top", "Men Tshirt", "Sleeveless Dress"]
 }
