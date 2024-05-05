@@ -37,4 +37,24 @@ describe("API test", () => {
     //     cy.log("statusCode: " + response.statusCode)
     // })
   });
+
+  it.only("Bag test", function () {
+    cy.visit(data.baseURL);
+    cy.intercept("POST", "https://automationexercise.com/login").as(
+      "login"
+    );
+
+    homePage.signIn();
+    loginPage.loginUser(data.email, data.password, data.username);
+    cy.wait("@login").should(({ request, response }) => {
+      cy.log(request)
+      cy.log("request: " + JSON.stringify(request.body));
+      cy.log("response: " + JSON.stringify(response));
+
+      expect(response.statusCode).to.eq(302);
+    
+   //   cy.log("body: " + JSON.stringify(response.body));
+    });
+  });
 });
+``
