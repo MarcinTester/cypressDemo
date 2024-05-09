@@ -11,7 +11,7 @@ cypress-tests:
     # start the server in the background
     - npm start &
     # run Cypress tests
-    - npm run firefox --spec "cypress/integration/examples/ui/*" 
+    - npm run uiTests -- --browser firefox 
   artifacts:
     paths:
       - cypress/screenshots

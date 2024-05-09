@@ -5,9 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "chrome": "cypress run --browser chrome",
-    "firefox": "cypress run --browser firefox",
-    "edge": "cypress run --browser edge"
+    "apiTests": "cypress run --spec 'cypress/integration/examples/api/*'",
+    "uiTests": "cypress run --spec 'cypress/integration/examples/ui/*'"
   },
   "author": "",
   "license": "ISC",

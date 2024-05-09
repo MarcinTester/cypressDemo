@@ -1,16 +1,19 @@
 # CypressTests test
 
-Run all tests
+Run all tests:
 
 ```
-npx cypress run 
+npx cypress run
 ```
+Run ui tests:
 ```
-npx cypress run --spec "cypress/integration/examples/api/*"
+npm run uiTests
 ```
+Run api tests:
 ```
- npx cypress run --spec "cypress/integration/examples/ui/*" 
+npm run apiTests
 ```
+Run tests on specific browser: chrome, edge, firefox:
 ```
-npm run chrome --spec "cypress/integration/examples/ui/*" 
+npm run uiTests -- --browser chrome
 ```
