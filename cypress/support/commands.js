@@ -25,3 +25,4 @@ Cypress.Commands.add("checkText", (locator, checkText) => {
     expect(text).to.contain(checkText);
   });
 });
+

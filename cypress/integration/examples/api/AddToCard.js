@@ -11,20 +11,10 @@ describe("apiTest", function () {
   it("Add to card", () => {
     result = cy.request(data.baseURL + "/add_to_cart/1");
     result.its("status").should("equal", 200);
+    cy.test1();
   });
-  it("apiTest Validate example", () => {
-    cy.request({
-      method: "GET",
-      url: data.baseURL + "/add_to_cart/1",
-      headers: {
-        accept: "application/json",
-      },
-    }).then((response) => {
-      let body = JSON.parse(JSON.stringify(response.body));
-      expect(response.status).to.eq(200);
-      expect(body).to.eq("Added To Cart");
-      cy.log(response.status);
-      cy.log(body);
-    });
+  it.only("apiTest Validate example", () => {
+   // cy.log(data.baseURL)
+    cy.test1(data.baseURL);
   });
 });

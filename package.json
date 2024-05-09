@@ -4,12 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "chrome": "cypress run --browser chrome",
+    "firefox": "cypress run --browser firefox",
+    "edge": "cypress run --browser edge"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cypress": "^11.2.0",
-    "faker": "^6.6.6"
+    "cypress": "^13.9.0",
+    "faker": "^5.5.3"
   }
 }

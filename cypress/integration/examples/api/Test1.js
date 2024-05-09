@@ -24,9 +24,6 @@ describe("apiTest", function () {
       },
     }).then((response) => {
       let body = JSON.parse(JSON.stringify(response.body));
-      // let body2 = response.body
-      // cy.log(body2)
-      // cy.log(body2.responseCode)
     });
   });
 });
