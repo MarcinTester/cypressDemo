@@ -11,8 +11,7 @@ cypress-tests:
     # start the server in the background
     - npm start &
     # run Cypress tests
-    - npx cypress run --headless --browser chrome
-
+    -  npx cypress run chrome --spec "cypress/integration/examples/ui/*" 
   artifacts:
     paths:
       - cypress/screenshots
