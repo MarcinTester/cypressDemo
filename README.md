@@ -15,5 +15,5 @@ npm run apiTests
 ```
 Run tests on specific browser: chrome, edge, firefox:
 ```
-npm run uiTests -- --browser chrome
+npm run uiTests -- --browser firefox
 ```
