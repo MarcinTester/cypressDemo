@@ -26,3 +26,12 @@ Cypress.Commands.add("checkText", (locator, checkText) => {
   });
 });
 
+Cypress.Commands.add("addProduct", (productname) => {
+  cy.log("fdsfsf sfddsf dsf")
+  cy.get ('[data-test="inventory-item-description"]').each(($el,index,$list) =>{
+    if ($el.text().includes (productname)) {
+        cy.get('[class="btn btn_primary btn_small btn_inventory "]').eq(index).click()
+    } 
+});
+});
+

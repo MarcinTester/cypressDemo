@@ -1,9 +1,23 @@
 {
-  "username": "61559",
-  "email": "61559@gmial.com",
-  "body": "Fixtures are a great way to mock data for responses to routes",
-  "password": "test1234!",
+  "standard_user": {
+    "firstName": "John",
+    "lastName": "Nowak",
+    "postalCode": "45-435",
+    "username": "standard_user",
+    "password": "secret_sauce"
+  },
+  "locked_out_user": {
+    "username": "locked_out_user",
+    "password": "secret_sauce"
+  },
   "incorrcetPassword": "test1234!2",
-  "baseURL": "https://automationexercise.com/",
-  "products": ["Blue Top", "Men Tshirt", "Sleeveless Dress"]
+  "baseURL": "https://www.saucedemo.com/",
+  "products": [
+    "Sauce Labs Backpack",
+    "Sauce Labs Bike Light",
+    "Sauce Labs Bolt T-Shirt",
+    "Sauce Labs Fleece Jacket",
+    "Sauce Labs Onesie",
+    "Test.allTheThings() T-Shirt (Red)"
+  ]
 }

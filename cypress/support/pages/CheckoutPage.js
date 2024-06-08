@@ -1,47 +1,36 @@
 class CheckoutPage {
   elements = {
-    proceedToCheckoutButton: () =>
-      cy.get('[class="btn btn-default check_out"]'),
-    placeOrderButton: () => cy.get('[href="/payment"]'),
-    nameOnTheCardTextField: () => cy.get('[class="form-control"]'),
-    cardNumberTextField: () => cy.get('[name="card_number"]'),
-    cvcNumberTextField: () => cy.get('[name="cvc"]'),
-    expiryMonthTextField: () => cy.get('[class="form-control card-expiry-month"]'),
-    expiryYearTextField: () => cy.get('[name="expiry_year"]'),
-    confirmOrderButton: () => cy.get('[class="form-control btn btn-primary submit-button"]'),
-    orderPlacedText: () => cy.get('[class="title text-center"]'),
+    firstNameTextField: () => cy.get('[data-test="firstName"]'),
+    lastNameTextField: () => cy.get('[data-test="lastName"]'),
+    postalCodeTextField: () => cy.get('[data-test="postalCode"]'),
+    continueButton: () => cy.get('[data-test="continue"]'),
+    finishButton: () => cy.get('[data-test="finish"]'),
+    backHomeButton: () => cy.get('[data-test="back-to-products"]'),
+
   };
 
-  placeOrder() {
-    this.elements.placeOrderButton().click();
+  provideFirstName(firstName) {
+    this.elements.firstNameTextField().type(firstName)
   }
 
-  nameOnTheCard(name) {
-    this.elements.nameOnTheCardTextField().type(name);
+  provideLastName(lastName) {
+    this.elements.lastNameTextField().type(lastName)
   }
 
-  cardNumber(cardNumber) {
-    this.elements.cardNumberTextField().type(cardNumber);
+  providePostalCode(postalCode) {
+    this.elements.postalCodeTextField().type(postalCode)
   }
 
-  cvcNumber(cvcNumber) {
-    this.elements.cvcNumberTextField().type(cvcNumber);
+  continueToOverview() {
+    this.elements.continueButton().click()
   }
 
-  expiryMonth(expiryMonth) {
-    this.elements.expiryMonthTextField().type(expiryMonth);
-  }
-  
-  expiryYear(expiryYear) {
-    this.elements.expiryYearTextField().type(expiryYear);
+  finishCheckout() {
+    this.elements.finishButton().click()
   }
 
-  confirmOrder() {
-    this.elements.confirmOrderButton().click();
-  }
-  
-  confirmOrderPlacedText() {
-    this.elements.orderPlacedText().contains('Order Placed!').should('be.visible')
+  backToProducts() {
+    this.elements.backHomeButton().click()
   }
 }
 

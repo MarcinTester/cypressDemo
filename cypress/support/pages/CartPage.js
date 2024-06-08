@@ -1,12 +1,11 @@
 class CartPage {
   elements = {
-    proceedToCheckoutButton: () =>
-      cy.get('[class="btn btn-default check_out"]'),
-    placeOrderButton: () => cy.get('[href="/payment"]'),
+    checkoutButton: () => cy.get('[data-test="checkout"]'),
+
   };
 
   proceedToCheckout() {
-    this.elements.proceedToCheckoutButton().click();
+    this.elements.checkoutButton().click();
   }
 }
 

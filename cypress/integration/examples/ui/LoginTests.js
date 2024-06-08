@@ -11,33 +11,32 @@ describe("test", function () {
     });
   });
 
-  it("Register user", () => {
+  beforeEach(function () {
     cy.visit(data.baseURL);
-    homePage.signIn();
-    loginPage.registerNewUser();
+
   });
 
-  it("Login user", () => {
-    cy.visit(data.baseURL);
-    homePage.signIn();
-    loginPage.loginUser(data.email, data.password, data.username);
+  it("Login and logout standard_user", () => {
+    loginPage.provideUsername(data.standard_user.username);
+    loginPage.providePassword(data.standard_user.password);
+    loginPage.clickLogin()
+    cy.get(homePage.elements.cartButton).should('be.visible');
+    cy.get(homePage.elements.addToCartButton).should('be.visible');
+
+    homePage.openHamburgerMenu()
+    homePage.logout()
+
+    cy.get(loginPage.elements.usernameTextField).should('be.visible');
+    cy.get(loginPage.elements.passwordTextField).should('be.visible');
+    cy.get(loginPage.elements.loginButton).should('be.visible');
   });
 
-  it("Logout user", () => {
-    cy.visit(data.baseURL);
-    homePage.signIn();
-    loginPage.loginUser(data.email, data.password, data.username);
-    loginPage.logoutUser()
-  });
+  it("Login locked_out_user", () => {
+    loginPage.provideUsername(data.locked_out_user.username);
+    loginPage.providePassword(data.locked_out_user.password);
+    loginPage.clickLogin()
 
-  it("Login user with wrong password", () => {
-    cy.visit(data.baseURL);
-    homePage.signIn();
-    loginPage.loginUserFail(data.email, data.incorrcetPassword);
-  });
-
-  it("Fail test", () => {
-    cy.visit(data.baseURL);
-    homePage.failTest();
+    cy.get(loginPage.elements.errorMessage).should('be.visible');
+    cy.get(loginPage.elements.errorMessage).should('contain.text', 'Epic sadface: Sorry, this user has been locked out.');
   });
 });
