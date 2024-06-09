@@ -13,12 +13,13 @@ describe("test", function () {
 
   beforeEach(function () {
     cy.visit(data.baseURL);
-    loginPage.provideUsername(data.standard_user.username);
-    loginPage.providePassword(data.standard_user.password);
+    cy.login(data.standard_user.username, data.standard_user.password)
   });
 
-  it("Login and logout standard_user", () => {
-    loginPage.clickLogin()
+  it("Product page", () => {
     homePage.openProductPage();
+  });
+
+  it("Sort products", () => {
   });
 });
