@@ -13,13 +13,10 @@ describe("test", function () {
 
   beforeEach(function () {
     cy.visit(data.baseURL);
-
   });
 
   it("Login and logout standard_user", () => {
-    loginPage.provideUsername(data.standard_user.username);
-    loginPage.providePassword(data.standard_user.password);
-    loginPage.clickLogin()
+    cy.login(data.standard_user.username, data.standard_user.password)
     cy.get(homePage.elements.cartButton).should('be.visible');
     cy.get(homePage.elements.addToCartButton).should('be.visible');
 
@@ -32,9 +29,7 @@ describe("test", function () {
   });
 
   it("Login locked_out_user", () => {
-    loginPage.provideUsername(data.locked_out_user.username);
-    loginPage.providePassword(data.locked_out_user.password);
-    loginPage.clickLogin()
+    cy.login(data.locked_out_user.username, data.locked_out_user.password)
 
     cy.get(loginPage.elements.errorMessage).should('be.visible');
     cy.get(loginPage.elements.errorMessage).should('contain.text', 'Epic sadface: Sorry, this user has been locked out.');
