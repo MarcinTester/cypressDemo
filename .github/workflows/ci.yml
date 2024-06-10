@@ -10,3 +10,13 @@ jobs:
       # and run all Cypress tests
       - name: Cypress run
         uses: cypress-io/github-action@v6
+      # Store artifacts
+      - name: Store Cypress test results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: cypress-test-results
+          path: |
+            cypress/screenshots
+            cypress/videos
+            cypress/reports
