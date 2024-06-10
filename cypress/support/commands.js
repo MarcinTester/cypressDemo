@@ -1,4 +1,5 @@
 import LoginPage from "../support/pages/LoginPage";
+
 const loginPage = new LoginPage();
 
 Cypress.Commands.add("checkText", (locator, checkText) => {
