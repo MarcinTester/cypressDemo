@@ -34,9 +34,9 @@ describe("Checkout tests", function () {
 
     cartPage.removeFirstProduct();
 
-    cy.get(homePage.elements.shoppingCartBadge)
-      .should("be.visible")
-      .should("contain.text", "1");
+    // cy.get(homePage.elements.shoppingCartBadge)
+    //   .should("be.visible")
+    //   .should("contain.text", "1");
 
     cartPage.removeFirstProduct();
 

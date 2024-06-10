@@ -6,8 +6,7 @@ class ProductPage {
     productCard: () => cy.get(".product-image-wrapper"),
     addToCart: () => cy.get(".productinfo > .btn"),
     addedCartTitle: () => cy.get(".modal-title"),
-    continueShoppingButton: () =>
-      cy.get('[class="btn btn-success close-modal btn-block"]'),
+    continueShoppingButton: () => cy.get('[class="btn btn-success close-modal btn-block"]'),
   };
 
   searchProducts(product) {
