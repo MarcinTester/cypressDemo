@@ -20,36 +20,38 @@ describe("Checkout tests", function () {
   });
 
   it("Add and remove from card", () => {
-    cy.login(data.standard_user.username, data.standard_user.password);
+    cy.login(data.error_user.username, data.standard_user.password);
     cy.addProduct(data.products[5]);
     cy.addProduct(data.products[4]);
 
-    cy.get(homePage.elements.shoppingCartBadge)
+    homePage.elements
+      .shoppingCartBadge()
       .should("be.visible")
       .should("contain.text", "2");
 
     homePage.openCart();
 
-    cy.get(cartPage.elements.price).should("include.text", "$");
+    cartPage.elements.price().should("include.text", "$");
 
     cartPage.removeFirstProduct();
 
-    // cy.get(homePage.elements.shoppingCartBadge)
-    //   .should("be.visible")
-    //   .should("contain.text", "1");
+    homePage.elements
+      .shoppingCartBadge()
+      .should("be.visible")
+      .should("contain.text", "1");
 
     cartPage.removeFirstProduct();
 
-    // cy.get(homePage.elements.shoppingCartBadge)
-    //   .should("not.be.visible")
+    homePage.elements.shoppingCartBadge().should("not.exist");
   });
 
-  it("Order all products", () => {
+  it.only("Order all products", () => {
     cy.login(data.standard_user.username, data.standard_user.password);
     cy.addProducts(data.products);
 
-    cy.get(homePage.elements.removeButton).should("be.visible");
-    cy.get(homePage.elements.shoppingCartBadge)
+    homePage.elements.removeButton().should("be.visible");
+    homePage.elements
+      .shoppingCartBadge()
       .should("be.visible")
       .should("contain.text", "6");
 
@@ -62,15 +64,16 @@ describe("Checkout tests", function () {
     checkoutPage.finishCheckout();
     checkoutPage.backToProducts();
 
-    cy.get(homePage.elements.shoppingCartBadge).should("not.be.visible");
-    cy.get(homePage.elements.removeFleeceJacketButton).should("not.be.visible");
+    homePage.elements.shoppingCartBadge().should("not.exist");
+    homePage.elements.removeFleeceJacketButton().should("not.exist");
   });
 
   it("Order product Error user", () => {
     cy.login(data.error_user.username, data.error_user.password);
     cy.addProducts(data.products);
-    cy.get(homePage.elements.removeFleeceJacketButton).should("be.visible");
-    cy.get(homePage.elements.shoppingCartBadge)
+    homePage.elements.removeFleeceJacketButton().should("be.visible");
+    homePage.elements
+      .shoppingCartBadge()
       .should("be.visible")
       .should("contain.text", "1");
 
@@ -83,7 +86,7 @@ describe("Checkout tests", function () {
     checkoutPage.finishCheckout();
     checkoutPage.backToProducts();
 
-    cy.get(homePage.elements.shoppingCartBadge).should("not.be.visible");
-    cy.get(homePage.elements.removeFleeceJacketButton).should("not.be.visible");
+    homePage.elements.shoppingCartBadge().should("not.exist");
+    homePage.elements.removeFleeceJacketButton().should("not.exist");
   });
 });

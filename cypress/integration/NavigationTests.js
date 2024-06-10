@@ -18,7 +18,7 @@ describe("test", function () {
 
   it("Home page", () => {
     cy.login(data.standard_user.username, data.standard_user.password)
-    cy.get(homePage.elements.hamburgerMenu).should("be.visible");
+    homePage.elements.hamburgerMenu().should("be.visible");
   });
 
   it("Product page", () => {
