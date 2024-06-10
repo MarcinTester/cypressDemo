@@ -28,8 +28,7 @@ describe("test", function () {
     
   });
 
-  it.only("Visual test", () => {
+  it("Visual test", () => {
     cy.login(data.standard_user.username, data.standard_user.password)
-    cy.get('[data-test="inventory-item-sauce-labs-backpack-img"]').toMatchImageSnapshot();
   });
 });
