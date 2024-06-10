@@ -83,7 +83,6 @@ describe("Checkout tests", function () {
     checkoutPage.finishCheckout();
     checkoutPage.backToProducts();
 
-    
     cy.get(homePage.elements.shoppingCartBadge).should("not.be.visible");
     cy.get(homePage.elements.removeFleeceJacketButton).should("not.be.visible");
   });

@@ -7,8 +7,7 @@ class HomePage {
     removeFleeceJacketButton: () => cy.get('[data-test="remove-sauce-labs-fleece-jacket"]'),
     shoppingCartBadge: () => cy.get('[data-test="shopping-cart-badge"]'),
     productName: () => cy.get('[data-test="inventory-item-name"]'),
-    removeButton: () => cy.contains('Remove'),
-
+    removeButton: () => cy.contains("Remove"),
   };
 
   removeFirstProduct() {
@@ -16,11 +15,11 @@ class HomePage {
   }
 
   openHamburgerMenu() {
-    this.elements.hamburgerMenu().click({force: true});
+    this.elements.hamburgerMenu().click({ force: true });
   }
 
   logout() {
-    this.elements.logoutButton().click({force: true});
+    this.elements.logoutButton().click({ force: true });
   }
 
   openCart() {
@@ -30,7 +29,6 @@ class HomePage {
   openProductPage() {
     this.elements.productName().first().click();
   }
-
 }
 
 export default HomePage;

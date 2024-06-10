@@ -6,31 +6,30 @@ class CheckoutPage {
     continueButton: () => cy.get('[data-test="continue"]'),
     finishButton: () => cy.get('[data-test="finish"]'),
     backHomeButton: () => cy.get('[data-test="back-to-products"]'),
-
   };
 
   provideFirstName(firstName) {
-    this.elements.firstNameTextField().type(firstName)
+    this.elements.firstNameTextField().type(firstName);
   }
 
   provideLastName(lastName) {
-    this.elements.lastNameTextField().type(lastName)
+    this.elements.lastNameTextField().type(lastName);
   }
 
   providePostalCode(postalCode) {
-    this.elements.postalCodeTextField().type(postalCode)
+    this.elements.postalCodeTextField().type(postalCode);
   }
 
   continueToOverview() {
-    this.elements.continueButton().click()
+    this.elements.continueButton().click();
   }
 
   finishCheckout() {
-    this.elements.finishButton().click()
+    this.elements.finishButton().click();
   }
 
   backToProducts() {
-    this.elements.backHomeButton().click()
+    this.elements.backHomeButton().click();
   }
 }
 

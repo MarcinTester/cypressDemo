@@ -13,22 +13,20 @@ describe("test", function () {
 
   beforeEach(function () {
     cy.visit(data.baseURL);
-  //  cy.login(data.standard_user.username, data.standard_user.password)
+    //  cy.login(data.standard_user.username, data.standard_user.password)
   });
 
   it("Home page", () => {
-    cy.get(homePage.elements.hamburgerMenu).should('be.visible')
+    cy.get(homePage.elements.hamburgerMenu).should("be.visible");
   });
 
   it("Product page", () => {
     homePage.openProductPage();
   });
 
-  it("Sort products", () => {
-    
-  });
+  it("Sort products", () => {});
 
   it("Visual test", () => {
-    cy.login(data.standard_user.username, data.standard_user.password)
+    cy.login(data.standard_user.username, data.standard_user.password);
   });
 });
