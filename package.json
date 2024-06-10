@@ -5,13 +5,16 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "apiTests": "cypress run --spec 'cypress/integration/examples/api/*'",
-    "uiTests": "cypress run --spec 'cypress/integration/examples/ui/*'"
+    "apiTests": "cypress run --spec 'cypress/integration/*'",
+    "uiTests": "cypress run --spec 'cypress/integration/*'"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cypress": "^13.9.0",
     "faker": "^5.5.3"
+  },
+  "devDependencies": {
+    "cypress": "^13.11.0",
+    "cypress-image-snapshot": "^4.0.1"
   }
 }

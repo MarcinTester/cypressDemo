@@ -7,8 +7,13 @@ class HomePage {
     removeFleeceJacketButton: () => cy.get('[data-test="remove-sauce-labs-fleece-jacket"]'),
     shoppingCartBadge: () => cy.get('[data-test="shopping-cart-badge"]'),
     productName: () => cy.get('[data-test="inventory-item-name"]'),
+    removeButton: () => cy.contains('Remove'),
 
   };
+
+  removeFirstProduct() {
+    this.elements.removeButton().first().click();
+  }
 
   openHamburgerMenu() {
     this.elements.hamburgerMenu().click({force: true});

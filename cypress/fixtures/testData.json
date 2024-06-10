@@ -10,14 +10,21 @@
     "username": "locked_out_user",
     "password": "secret_sauce"
   },
+  "error_user": {
+    "firstName": "John",
+    "lastName": "Error",
+    "postalCode": "45-435",
+    "username": "error_user",
+    "password": "secret_sauce"
+  },
   "incorrcetPassword": "test1234!2",
   "baseURL": "https://www.saucedemo.com/",
   "products": [
-    "Sauce Labs Backpack",
-    "Sauce Labs Bike Light",
-    "Sauce Labs Bolt T-Shirt",
-    "Sauce Labs Fleece Jacket",
+    "Test.allTheThings() T-Shirt (Red)",
     "Sauce Labs Onesie",
-    "Test.allTheThings() T-Shirt (Red)"
+    "Sauce Labs Fleece Jacket",
+    "Sauce Labs Bolt T-Shirt",
+    "Sauce Labs Bike Light",
+    "Sauce Labs Backpack"
   ]
 }
