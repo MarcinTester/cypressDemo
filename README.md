@@ -1,4 +1,17 @@
 # CypressTests test
+Requrements:
+Install Node.js
+
+Install Cypress:
+
+```
+npm install cypress --save-dev
+
+```
+Open Cypress app:
+```
+npx cypress open
+```
 
 Run all tests:
 
