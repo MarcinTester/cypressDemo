@@ -40,5 +40,13 @@ npm run uiTests
 
 Run tests on specific browser: chrome, edge, firefox:
 ```
-npm run uiTests --browser firefox
+npm run uiTests-Chrome
+npm run uiTests-edge
+npm run uiTests-firefox
 ```
+
+### Test Raport
+After each run, test raport is crated: 
+            cypress/screenshots
+            cypress/videos
+            cypress/reports
