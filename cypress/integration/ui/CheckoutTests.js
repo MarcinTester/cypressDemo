@@ -65,7 +65,7 @@ describe("Checkout tests", function () {
 
     homePage.openCart();
 
-    
+
     cartPage.proceedToCheckout();
     checkoutPage.provideFirstName(users.standard_user.firstName);
     checkoutPage.provideLastName(users.standard_user.lastName);
@@ -88,7 +88,7 @@ describe("Checkout tests", function () {
     homePage.elements.removeFleeceJacketButton().should("not.exist");
   });
 
-  it("Order product Error user", () => {
+  it("Order product with Error_user", () => {
     cy.login(users.error_user.username, users.error_user.password);
     cy.addProducts(data.products);
     homePage.elements.removeFleeceJacketButton().should("be.visible");
@@ -110,7 +110,7 @@ describe("Checkout tests", function () {
     homePage.elements.removeFleeceJacketButton().should("not.exist");
   });
 
-  it("Continue without providing checkout information", () => {
+  it("Continue checkout without providing checkout information", () => {
     cy.login(users.standard_user.username, users.standard_user.password);
     cy.addProduct(data.products[3]);
     homePage.openCart();
