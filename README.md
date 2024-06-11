@@ -1,4 +1,18 @@
 # CypressTests test
+
+Automates test cases:
+- Add and remove from card
+- Order all products
+- Order product with Error_user
+- Continue checkout without providing checkout information
+-
+- Login and logout standard_user
+- Login standard_user with incorrect password
+- Login locked_out_user
+-
+- Home page elements quick check
+- Open all product pages
+
 Requrements:
 Install Node.js
 

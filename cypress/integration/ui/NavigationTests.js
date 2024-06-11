@@ -21,7 +21,7 @@ describe("test", function () {
     cy.visit("/");
   });
 
-  it("Home page", () => {
+  it("Home page elements quick check", () => {
     cy.login(users.standard_user.username, users.standard_user.password);
     homePage.elements.hamburgerMenu().should("be.visible");
     homePage.elements.productCard().should("have.length", 6);
