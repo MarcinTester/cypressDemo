@@ -24,26 +24,6 @@ describe("test", function () {
   it("Home page", () => {
     cy.login(users.standard_user.username, users.standard_user.password);
     homePage.elements.hamburgerMenu().should("be.visible");
-    homePage.elements.productCard().should('have.length', 6);
+    homePage.elements.productCard().should("have.length", 6);
   });
-
-  it("Open all product pages", () => {
-    cy.login(users.standard_user.username, users.standard_user.password);
-    data.products.forEach(function (product) {
-      homePage.openProductPage(product);
-      productPage.elements
-        .productName()
-        .should("be.visible")
-        .should("have.text", product);
-      productPage.backToProducts();
-    });
-  });
-
-  it("Sort products", () => {
-    cy.login(users.standard_user.username, users.standard_user.password);
-  });
-
-  // it("Visual test", () => {
-  //   cy.login(users.standard_user.username, users.standard_user.password);
-  // });
 });

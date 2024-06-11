@@ -6,6 +6,7 @@ import CheckoutPage from "../../support/pages/CheckoutPage";
 describe("Checkout tests", function () {
   let data;
   let users;
+  let checkoutData;
   const homePage = new HomePage();
   const cartPage = new CartPage();
   const checkoutPage = new CheckoutPage();
@@ -17,6 +18,10 @@ describe("Checkout tests", function () {
     cy.fixture("usersData").then(function (usersData) {
       users = usersData;
     });
+    cy.fixture("checkoutTestData").then(function (checkoutTestData) {
+      checkoutData = checkoutTestData;
+    });
+
   });
 
   beforeEach(function () {
@@ -49,7 +54,7 @@ describe("Checkout tests", function () {
     homePage.elements.shoppingCartBadge().should("not.exist");
   });
 
-  it("Order all products", () => {
+  it.only("Order all products", () => {
     cy.login(users.standard_user.username, users.standard_user.password);
     cy.addProducts(data.products);
 

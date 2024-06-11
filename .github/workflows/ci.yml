@@ -3,15 +3,19 @@ on: push
 jobs:
   cypress-run:
     runs-on: ubuntu-22.04
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2]
     steps:
-    # Step 1: Checkout the code
+      # Step 1: Checkout the code
       - name: Checkout
         uses: actions/checkout@v4
       # Step 2: Set up Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: "16"
 
       # Step 3: Install npm dependencies
       - name: Install dependencies

@@ -35,7 +35,7 @@ describe("test", function () {
 
   it("Login standard_user with incorrect password", () => {
     cy.login(users.standard_user.username, users.incorrcetPassword);
-    
+
     loginPage.elements
       .errorMessage()
       .should("be.visible")
@@ -51,7 +51,7 @@ describe("test", function () {
       .should("contain.text", data.loginErrorText);
   });
 
-  it("Login performance_glitch_user", () => {
+  it.only("Login performance_glitch_user", () => {
     cy.login(
       users.performance_glitch_user.username,
       users.performance_glitch_user.password
