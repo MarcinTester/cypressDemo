@@ -6,6 +6,8 @@ class CheckoutPage {
     continueButton: () => cy.get('[data-test="continue"]'),
     finishButton: () => cy.get('[data-test="finish"]'),
     backHomeButton: () => cy.get('[data-test="back-to-products"]'),
+    completeHeader: () => cy.get('[data-test="complete-header"]'),
+    completeText: () => cy.get('[data-test="complete-text"]'),
   };
 
   provideFirstName(firstName) {

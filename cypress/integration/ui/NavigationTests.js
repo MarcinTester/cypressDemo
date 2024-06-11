@@ -1,36 +1,51 @@
 /// <reference types="Cypress" />
 import HomePage from "../../support/pages/HomePage";
 import LoginPage from "../../support/pages/LoginPage";
+import ProductPage from "../../support/pages/ProductPage";
 describe("test", function () {
   let data;
+  let users;
   const homePage = new HomePage();
   const loginPage = new LoginPage();
+  const productPage = new ProductPage();
   before(function () {
     cy.fixture("testData").then(function (testData) {
       data = testData;
     });
+    cy.fixture("usersData").then(function (usersData) {
+      users = usersData;
+    });
   });
 
   beforeEach(function () {
-    cy.visit(data.baseURL);
-    //cy.login(data.standard_user.username, data.standard_user.password)
+    cy.visit("/");
   });
 
   it("Home page", () => {
-    cy.login(data.standard_user.username, data.standard_user.password)
+    cy.login(users.standard_user.username, users.standard_user.password);
     homePage.elements.hamburgerMenu().should("be.visible");
+    homePage.elements.productCard().should('have.length', 6);
   });
 
-  it("Product page", () => {
-    cy.login(data.standard_user.username, data.standard_user.password)
-    homePage.openProductPage();
+  
+
+  it("Open all product pages", () => {
+    cy.login(users.standard_user.username, users.standard_user.password);
+    data.products.forEach(function (product) {
+      homePage.openProductPage(product);
+      productPage.elements
+        .productName()
+        .should("be.visible")
+        .should("have.text", product);
+      productPage.backToProducts();
+    });
   });
 
   it("Sort products", () => {
-    cy.login(data.standard_user.username, data.standard_user.password)
+    cy.login(users.standard_user.username, users.standard_user.password);
   });
 
-  it("Visual test", () => {
-    cy.login(data.standard_user.username, data.standard_user.password);
-  });
+  // it("Visual test", () => {
+  //   cy.login(users.standard_user.username, users.standard_user.password);
+  // });
 });

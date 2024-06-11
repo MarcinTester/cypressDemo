@@ -8,6 +8,9 @@ class HomePage {
     shoppingCartBadge: () => cy.get('[data-test="shopping-cart-badge"]'),
     productName: () => cy.get('[data-test="inventory-item-name"]'),
     removeButton: () => cy.contains("Remove"),
+    productCard: () => cy.get('[data-test="inventory-item"]'),
+    itemDescription: () => cy.get('[data-test="inventory-item-description"]'),
+    itemAddToCartButton: () => cy.get('[data-test="inventory-item-description"] > div button'),
   };
 
   removeFirstProduct() {
@@ -26,9 +29,14 @@ class HomePage {
     this.elements.cartButton().click();
   }
 
-  openProductPage() {
+  openFirstProductPage() {
     this.elements.productName().first().click();
   }
+
+  openProductPage(productName) {
+    this.elements.productName().contains(productName).click()
+  }
 }
+
 
 export default HomePage;

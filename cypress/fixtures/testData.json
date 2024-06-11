@@ -1,30 +1,14 @@
 {
-  "standard_user": {
-    "firstName": "John",
-    "lastName": "Nowak",
-    "postalCode": "45-435",
-    "username": "standard_user",
-    "password": "secret_sauce"
-  },
-  "locked_out_user": {
-    "username": "locked_out_user",
-    "password": "secret_sauce"
-  },
-  "error_user": {
-    "firstName": "John",
-    "lastName": "Error",
-    "postalCode": "45-435",
-    "username": "error_user",
-    "password": "secret_sauce"
-  },
-  "incorrcetPassword": "test1234!2",
-  "baseURL": "https://www.saucedemo.com/",
   "products": [
-    "Test.allTheThings() T-Shirt (Red)",
-    "Sauce Labs Onesie",
-    "Sauce Labs Fleece Jacket",
-    "Sauce Labs Bolt T-Shirt",
+    "Sauce Labs Backpack",
     "Sauce Labs Bike Light",
-    "Sauce Labs Backpack"
-  ]
+    "Sauce Labs Bolt T-Shirt",
+    "Sauce Labs Fleece Jacket",
+    "Sauce Labs Onesie",
+    "T-Shirt (Red)"
+  ],
+  "loginErrorText": "Epic sadface: Sorry, this user has been locked out.",
+  "completeHeader": "Thank you for your order!",
+  "completeText": "Your order has been dispatched, and will arrive just as fast as the pony can get there!",
+  "incorrectPasswordMessage": "Epic sadface: Username and password do not match any user in this service"
 }

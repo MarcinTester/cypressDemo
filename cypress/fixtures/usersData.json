@@ -1,0 +1,28 @@
+{
+  "incorrcetPassword": "test1234!2",
+  "standard_user": {
+    "firstName": "John",
+    "lastName": "Nowak",
+    "postalCode": "45-435",
+    "username": "standard_user",
+    "password": "secret_sauce"
+  },
+  "locked_out_user": {
+    "username": "locked_out_user",
+    "password": "secret_sauce"
+  },
+  "error_user": {
+    "firstName": "John",
+    "lastName": "Error",
+    "postalCode": "45-435",
+    "username": "error_user",
+    "password": "secret_sauce"
+  },
+  "performance_glitch_user": {
+    "firstName": "John",
+    "lastName": "Performence",
+    "postalCode": "67-890",
+    "username": "performance_glitch_user",
+    "password": "secret_sauce"
+  }
+}

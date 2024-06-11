@@ -1,30 +1,18 @@
 class ProductPage {
   elements = {
-    searchBar: () => cy.get("#search_product"),
-    searchButton: () => cy.get('[id="submit_search"]'),
-    productName: () => cy.get(".product-image-wrapper > div > div > p"),
-    productCard: () => cy.get(".product-image-wrapper"),
-    addToCart: () => cy.get(".productinfo > .btn"),
-    addedCartTitle: () => cy.get(".modal-title"),
-    continueShoppingButton: () => cy.get('[class="btn btn-success close-modal btn-block"]'),
+    addToCartButton: () => cy.get('[data-test="add-to-cart"]'),
+    backButton: () => cy.get('[data-test="back-to-products"]'),
+    productName: () => cy.get('[data-test="inventory-item-name"]'),
   };
 
-  searchProducts(product) {
-    this.elements.searchBar().clear().type(product);
-    this.elements.searchButton().click();
-    this.elements.productName().contains(product).should("be.visible");
-    this.elements.productCard().should("be.visible");
+  backToProducts() {
+    this.elements.backButton().click();
   }
 
-  searchAndAddProducts(product) {
-    this.elements.searchBar().clear().type(product);
-    this.elements.searchButton().click();
-    this.elements.productName().contains(product).should("be.visible");
-    this.elements.productCard().should("be.visible");
-    this.elements.addToCart().click();
-    this.elements.addedCartTitle().contains("Added!").should("be.visible");
-    this.elements.continueShoppingButton().click();
+  addToCart() {
+    this.elements.addToCartButton().click();
   }
+
 }
 
 export default ProductPage;

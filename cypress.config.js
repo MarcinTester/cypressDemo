@@ -12,6 +12,8 @@ module.exports = defineConfig({
     videoOnFailOnly: true,
   },
   e2e: {
+    baseUrl: 'https://www.saucedemo.com/',
+    defaultCommandTimeout: 10000,
     chromeWebSecurity: false,
     setupNodeEvents(on, config) {
       require("cypress-mochawesome-reporter/plugin")(on);
@@ -21,6 +23,5 @@ module.exports = defineConfig({
   },
   retries: {
     runMode: 1,
-    openMode: 1,
   },
 });
