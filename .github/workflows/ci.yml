@@ -4,13 +4,22 @@ jobs:
   cypress-run:
     runs-on: ubuntu-22.04
     steps:
+    # Step 1: Checkout the code
       - name: Checkout
         uses: actions/checkout@v4
-      # Install npm dependencies, cache them correctly
-      # and run all Cypress tests
+      # Step 2: Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      # Step 3: Install npm dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Step 4: Run custom npm script
       - name: Run Cypress tests in Chrome
         run: npm run uiTests-Chrome
-      # Store artifacts
       - name: Store Cypress test results
         if: always()
         uses: actions/upload-artifact@v4
