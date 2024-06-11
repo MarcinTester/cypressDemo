@@ -8,6 +8,8 @@ class CheckoutPage {
     backHomeButton: () => cy.get('[data-test="back-to-products"]'),
     completeHeader: () => cy.get('[data-test="complete-header"]'),
     completeText: () => cy.get('[data-test="complete-text"]'),
+    checkoutErrorMessage: () => cy.get('[data-test="error"]'),
+    xIcon: () => cy.get('[data-icon="times-circle"]'),
   };
 
   provideFirstName(firstName) {

@@ -24,7 +24,10 @@ describe("test", function () {
   it("Home page", () => {
     cy.login(users.standard_user.username, users.standard_user.password);
     homePage.elements.hamburgerMenu().should("be.visible");
-    homePage.elements.productCard().should('have.length', 6);
+    homePage.elements.productCard().should("have.length", 6);
+    homePage.elements.productPrice().each((element) => {
+      cy.wrap(element).should("include.text", "$");
+    });
   });
 
   it("Open all product pages", () => {
@@ -35,15 +38,11 @@ describe("test", function () {
         .productName()
         .should("be.visible")
         .should("have.text", product);
+      productPage.elements
+        .productPrice()
+        .should("be.visible")
+        .should("include.text", "$");
       productPage.backToProducts();
     });
   });
-
-  it("Sort products", () => {
-    cy.login(users.standard_user.username, users.standard_user.password);
-  });
-
-  // it("Visual test", () => {
-  //   cy.login(users.standard_user.username, users.standard_user.password);
-  // });
 });

@@ -7,10 +7,12 @@ class LoginPage {
   };
 
   provideUsername(username) {
+    this.elements.usernameTextField().should('not.have.attr', 'disabled')
     this.elements.usernameTextField().type(username);
   }
 
   providePassword(password) {
+    this.elements.passwordTextField().should('not.have.attr', 'disabled')
     this.elements.passwordTextField().type(password);
   }
 

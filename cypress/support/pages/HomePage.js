@@ -11,7 +11,17 @@ class HomePage {
     productCard: () => cy.get('[data-test="inventory-item"]'),
     itemDescription: () => cy.get('[data-test="inventory-item-description"]'),
     itemAddToCartButton: () => cy.get('[data-test="inventory-item-description"] > div button'),
+    productPrice: () => cy.get('[data-test="inventory-item-price"]'),
+    sortDropdown: () => cy.get('[data-test="product-sort-container"]'),
   };
+
+  selectFromSortDrowpDown(option) {
+    this.elements.sortDropdown().select(option);
+  }
+
+  removeFirstProduct() {
+    this.elements.removeButton().first().click();
+  }
 
   removeFirstProduct() {
     this.elements.removeButton().first().click();

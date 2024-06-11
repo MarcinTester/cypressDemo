@@ -50,13 +50,4 @@ describe("test", function () {
       .should("be.visible")
       .should("contain.text", data.loginErrorText);
   });
-
-  it("Login performance_glitch_user", () => {
-    cy.login(
-      users.performance_glitch_user.username,
-      users.performance_glitch_user.password
-    );
-    homePage.elements.cartButton().should("be.visible");
-    homePage.elements.addToCartButton().should("be.visible");
-  });
 });

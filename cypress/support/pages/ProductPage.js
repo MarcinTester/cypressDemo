@@ -3,6 +3,7 @@ class ProductPage {
     addToCartButton: () => cy.get('[data-test="add-to-cart"]'),
     backButton: () => cy.get('[data-test="back-to-products"]'),
     productName: () => cy.get('[data-test="inventory-item-name"]'),
+    productPrice: () => cy.get('[data-test="inventory-item-price"]'),
   };
 
   backToProducts() {
