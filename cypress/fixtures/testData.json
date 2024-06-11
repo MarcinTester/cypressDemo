@@ -7,8 +7,17 @@
     "Sauce Labs Onesie",
     "T-Shirt (Red)"
   ],
+  "fourProductsOrder": [
+    "Sauce Labs Backpack",
+    "Sauce Labs Bike Light",
+    "Sauce Labs Fleece Jacket",
+    "Sauce Labs Onesie"
+  ],
   "loginErrorText": "Epic sadface: Sorry, this user has been locked out.",
   "completeHeader": "Thank you for your order!",
   "completeText": "Your order has been dispatched, and will arrive just as fast as the pony can get there!",
-  "incorrectPasswordMessage": "Epic sadface: Username and password do not match any user in this service"
+  "incorrectPasswordMessage": "Epic sadface: Username and password do not match any user in this service",
+  "missingFirstNameError": "Error: First Name is required",
+  "missingLastNameError": "Error: Last Name is required",
+  "missingPostalCodeError": "Error: Postal Code is required"
 }

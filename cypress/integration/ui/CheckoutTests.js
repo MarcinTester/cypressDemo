@@ -23,18 +23,24 @@ describe("Checkout tests", function () {
     cy.visit("/");
   });
 
-  it("Order all products", () => {
+  it("Order 4 products", () => {
     cy.login(users.standard_user.username, users.standard_user.password);
-    cy.addProducts(data.products);
+    cy.addProducts(data.fourProductsOrder);
 
     homePage.elements.removeButton().should("be.visible");
     homePage.elements
       .shoppingCartBadge()
       .should("be.visible")
-      .should("contain.text", "6");
+      .should("contain.text", "4");
 
     homePage.openCart();
-
+    data.fourProductsOrder.forEach(function (product) {
+      cartPage.elements
+        .productName()
+        .contains(product)
+        .should("be.visible")
+        .should("have.text", product);
+    });
     cartPage.proceedToCheckout();
     checkoutPage.provideFirstName(users.standard_user.firstName);
     checkoutPage.provideLastName(users.standard_user.lastName);
@@ -105,20 +111,20 @@ describe("Checkout tests", function () {
     checkoutPage.elements
       .checkoutErrorMessage()
       .should("be.visible")
-      .should("have.text", "Error: First Name is required");
+      .should("have.text", data.missingFirstNameError);
 
     checkoutPage.provideFirstName(users.error_user.firstName);
     checkoutPage.continueToOverview();
     checkoutPage.elements
       .checkoutErrorMessage()
       .should("be.visible")
-      .should("have.text", "Error: Last Name is required");
+      .should("have.text", data.missingLastNameError);
 
     checkoutPage.provideLastName(users.error_user.lastName);
-    checkoutPage.continueToOverview(); 
+    checkoutPage.continueToOverview();
     checkoutPage.elements
       .checkoutErrorMessage()
       .should("be.visible")
-      .should("have.text", "Error: Postal Code is required");
+      .should("have.text", data.missingPostalCodeError);
   });
 });

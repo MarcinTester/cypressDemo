@@ -21,7 +21,7 @@ describe("test", function () {
     cy.visit("/");
   });
 
-  it("Home page elements  check", () => {
+  it("Home page elements check", () => {
     cy.login(users.standard_user.username, users.standard_user.password);
     homePage.elements.hamburgerMenu().should("be.visible");
     homePage.elements
@@ -49,11 +49,10 @@ describe("test", function () {
     });
   });
 
-  it.only("Add and remove from card", () => {
+  it("Add and remove 2 products from card", () => {
     cy.login(users.standard_user.username, users.standard_user.password);
     cy.addProduct(data.products[0]);
     cy.addProduct(data.products[4]);
-
     homePage.elements
       .shoppingCartBadge()
       .should("be.visible")
@@ -79,7 +78,6 @@ describe("test", function () {
       .should("contain.text", "1");
 
     cartPage.removeFirstProduct();
-
     homePage.elements.shoppingCartBadge().should("not.exist");
   });
 });
