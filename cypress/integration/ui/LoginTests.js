@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
-import HomePage from "../support/pages/HomePage";
-import LoginPage from "../support/pages/LoginPage";
+import HomePage from "../../support/pages/HomePage";
+import LoginPage from "../../support/pages/LoginPage";
 describe("test", function () {
   let data;
   const homePage = new HomePage();

@@ -10,7 +10,7 @@ module.exports = defineConfig({
       require("cypress-mochawesome-reporter/plugin")(on);
     },
     video: true,
-    specPattern: "cypress/integration/*.js",
+    specPattern: "cypress/integration/ui/*.js",
   },
   retries: {
     runMode: 1,

@@ -1,7 +1,7 @@
 /// <reference types="Cypress" />
-import HomePage from "../support/pages/HomePage";
-import CartPage from "../support/pages/CartPage";
-import CheckoutPage from "../support/pages/CheckoutPage";
+import HomePage from "../../support/pages/HomePage";
+import CartPage from "../../support/pages/CartPage";
+import CheckoutPage from "../../support/pages/CheckoutPage";
 
 describe("Checkout tests", function () {
   let data;
@@ -45,7 +45,7 @@ describe("Checkout tests", function () {
     homePage.elements.shoppingCartBadge().should("not.exist");
   });
 
-  it.only("Order all products", () => {
+  it("Order all products", () => {
     cy.login(data.standard_user.username, data.standard_user.password);
     cy.addProducts(data.products);
 
