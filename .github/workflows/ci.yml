@@ -3,10 +3,10 @@ on: push
 jobs:
   cypress-run:
     runs-on: ubuntu-22.04
-    strategy:
-      fail-fast: false
-      matrix:
-        containers: [1, 2]
+  #  strategy:
+  #    fail-fast: false
+  #    matrix:
+  #      containers: [1, 2]
     steps:
       # Step 1: Checkout the code
       - name: Checkout
@@ -23,11 +23,12 @@ jobs:
 
       # Step 4: Run custom npm script
       - name: Run Cypress tests in Chrome
-        run: npm run uiTests-Chrome
-         # pass the machine index and the total number
-        env:
-          SPLIT: ${{ strategy.job-total }}
-          SPLIT_INDEX: ${{ strategy.job-index }}
+        run:
+          npm run uiTests-Chrome
+          # pass the machine index and the total number
+       # env:
+       #   SPLIT: ${{ strategy.job-total }}
+       #   SPLIT_INDEX: ${{ strategy.job-index }}
       - name: Store Cypress test results
         if: always()
         uses: actions/upload-artifact@v4
