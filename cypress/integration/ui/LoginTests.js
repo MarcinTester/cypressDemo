@@ -51,7 +51,7 @@ describe("test", function () {
       .should("contain.text", data.loginErrorText);
   });
 
-  it.only("Login performance_glitch_user", () => {
+  it("Login performance_glitch_user", () => {
     cy.login(
       users.performance_glitch_user.username,
       users.performance_glitch_user.password

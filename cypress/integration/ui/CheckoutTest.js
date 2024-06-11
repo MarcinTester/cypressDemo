@@ -54,7 +54,7 @@ describe("Checkout tests", function () {
     homePage.elements.shoppingCartBadge().should("not.exist");
   });
 
-  it.only("Order all products", () => {
+  it("Order all products", () => {
     cy.login(users.standard_user.username, users.standard_user.password);
     cy.addProducts(data.products);
 
