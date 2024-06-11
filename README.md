@@ -46,7 +46,4 @@ npm run uiTests-firefox
 ```
 
 ### Test Raport
-After each run, test raport is crated: 
-            cypress/screenshots
-            cypress/videos
-            cypress/reports
+After each run, test raport is crated: cypress/reports
