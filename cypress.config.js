@@ -4,6 +4,13 @@ module.exports = defineConfig({
   viewportWidth: 1920,
   viewportHeight: 1080,
   reporter: "cypress-mochawesome-reporter",
+  reporterOptions: {
+    charts: true,
+    reportPageTitle: 'custom-title',
+    embeddedScreenshots: true,
+    inlineAssets: true,
+    videoOnFailOnly: true,
+  },
   e2e: {
     chromeWebSecurity: false,
     setupNodeEvents(on, config) {
