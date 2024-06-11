@@ -6,7 +6,6 @@ import CheckoutPage from "../../support/pages/CheckoutPage";
 describe("Checkout tests", function () {
   let data;
   let users;
-  let checkoutData;
   const homePage = new HomePage();
   const cartPage = new CartPage();
   const checkoutPage = new CheckoutPage();
@@ -18,42 +17,13 @@ describe("Checkout tests", function () {
     cy.fixture("usersData").then(function (usersData) {
       users = usersData;
     });
-    cy.fixture("checkoutTestData").then(function (checkoutTestData) {
-      checkoutData = checkoutTestData;
-    });
   });
 
   beforeEach(function () {
     cy.visit("/");
   });
 
-  it("Add and remove from card", () => {
-    cy.login(users.standard_user.username, users.standard_user.password);
-    cy.addProduct(data.products[0]);
-    cy.addProduct(data.products[4]);
-
-    homePage.elements
-      .shoppingCartBadge()
-      .should("be.visible")
-      .should("contain.text", "2");
-
-    homePage.openCart();
-
-    cartPage.elements.price().should("include.text", "$");
-
-    cartPage.removeFirstProduct();
-
-    homePage.elements
-      .shoppingCartBadge()
-      .should("be.visible")
-      .should("contain.text", "1");
-
-    cartPage.removeFirstProduct();
-
-    homePage.elements.shoppingCartBadge().should("not.exist");
-  });
-
-  it.only("Order all products", () => {
+  it("Order all products", () => {
     cy.login(users.standard_user.username, users.standard_user.password);
     cy.addProducts(data.products);
 
@@ -64,7 +34,6 @@ describe("Checkout tests", function () {
       .should("contain.text", "6");
 
     homePage.openCart();
-
 
     cartPage.proceedToCheckout();
     checkoutPage.provideFirstName(users.standard_user.firstName);
@@ -86,6 +55,21 @@ describe("Checkout tests", function () {
 
     homePage.elements.shoppingCartBadge().should("not.exist");
     homePage.elements.removeFleeceJacketButton().should("not.exist");
+  });
+
+  it("Order empty cart", () => {
+    cy.login(users.standard_user.username, users.standard_user.password);
+    homePage.openCart();
+    cartPage.proceedToCheckout();
+
+    checkoutPage.provideFirstName(users.standard_user.firstName);
+    checkoutPage.provideLastName(users.standard_user.lastName);
+    checkoutPage.providePostalCode(users.standard_user.postalCode);
+    checkoutPage.continueToOverview();
+    checkoutPage.finishCheckout();
+
+    checkoutPage.elements.completeHeader().should("not.be.visible");
+    checkoutPage.elements.completeText().should("not.be.visible");
   });
 
   it("Order product with Error_user", () => {
@@ -110,7 +94,7 @@ describe("Checkout tests", function () {
     homePage.elements.removeFleeceJacketButton().should("not.exist");
   });
 
-  it("Continue checkout without providing checkout information", () => {
+  it.only("Continue checkout without providing checkout all information", () => {
     cy.login(users.standard_user.username, users.standard_user.password);
     cy.addProduct(data.products[3]);
     homePage.openCart();
@@ -122,5 +106,19 @@ describe("Checkout tests", function () {
       .checkoutErrorMessage()
       .should("be.visible")
       .should("have.text", "Error: First Name is required");
+
+    checkoutPage.provideFirstName(users.error_user.firstName);
+    checkoutPage.continueToOverview();
+    checkoutPage.elements
+      .checkoutErrorMessage()
+      .should("be.visible")
+      .should("have.text", "Error: Last Name is required");
+
+    checkoutPage.provideLastName(users.error_user.lastName);
+    checkoutPage.continueToOverview(); 
+    checkoutPage.elements
+      .checkoutErrorMessage()
+      .should("be.visible")
+      .should("have.text", "Error: Postal Code is required");
   });
 });

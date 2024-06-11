@@ -34,7 +34,10 @@ describe("test", function () {
   });
 
   it("Login standard_user with incorrect password", () => {
-    cy.login(users.standard_user.username, users.incorrcetPassword);
+    cy.login(
+      users.standard_user.username,
+      users.standard_user.incorrcetPassword
+    );
 
     loginPage.elements
       .errorMessage()

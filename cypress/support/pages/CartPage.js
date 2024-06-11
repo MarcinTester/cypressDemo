@@ -3,6 +3,7 @@ class CartPage {
     checkoutButton: () => cy.get('[data-test="checkout"]'),
     removeButton: () => cy.contains("Remove"),
     price: () => cy.get('[data-test="inventory-item-price"]'),
+    productName: () => cy.get('[data-test="inventory-item-name"]'),
   };
 
   proceedToCheckout() {

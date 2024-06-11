@@ -1,11 +1,11 @@
 {
-  "incorrcetPassword": "test1234!2",
   "standard_user": {
     "firstName": "John",
     "lastName": "Nowak",
     "postalCode": "45-435",
     "username": "standard_user",
-    "password": "secret_sauce"
+    "password": "secret_sauce",
+    "incorrcetPassword": "test1234!2"
   },
   "locked_out_user": {
     "username": "locked_out_user",
@@ -20,7 +20,7 @@
   },
   "performance_glitch_user": {
     "firstName": "John",
-    "lastName": "Performence",
+    "lastName": "Performeence",
     "postalCode": "67-890",
     "username": "performance_glitch_user",
     "password": "secret_sauce"

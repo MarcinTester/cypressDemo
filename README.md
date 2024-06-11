@@ -1,5 +1,6 @@
 # CypressTests test
 
+Project contains automated tests of web page https://www.saucedemo.com/ with use of Cypress 
 Automates test cases:
 - Add and remove from card
 - Order all products
