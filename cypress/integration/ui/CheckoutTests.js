@@ -94,7 +94,7 @@ describe("Checkout tests", function () {
     homePage.elements.removeFleeceJacketButton().should("not.exist");
   });
 
-  it.only("Continue checkout without providing checkout all information", () => {
+  it("Continue checkout without providing checkout all information", () => {
     cy.login(users.standard_user.username, users.standard_user.password);
     cy.addProduct(data.products[3]);
     homePage.openCart();
