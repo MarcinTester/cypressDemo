@@ -8,8 +8,8 @@ jobs:
         uses: actions/checkout@v4
       # Install npm dependencies, cache them correctly
       # and run all Cypress tests
-      - name: Cypress run
-        uses: cypress-io/github-action@v6
+      - name: Run Cypress tests in Chrome
+        run: npm run uiTests-Chrome
       # Store artifacts
       - name: Store Cypress test results
         if: always()
