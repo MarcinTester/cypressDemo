@@ -18,6 +18,8 @@ jobs:
       # Step 4: Run custom npm script
       - name: Run Cypress tests in Chrome
         run: npm run uiTests-chrome
+      - name: Publish Test Summary Results
+        run: npx github-actions-ctrf ctrf/ctrf-report.json
       - name: Store Cypress test results
         if: always()
         uses: actions/upload-artifact@v4
