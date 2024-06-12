@@ -1,7 +1,9 @@
 # CypressTests test
 
 Project contains automated tests of web page https://www.saucedemo.com/ with use of Cypress.
+
 Tests are executed by Github actions after every push to repo.
+
 Automates test cases:
 - Order 4 products
 - Order empty cart
