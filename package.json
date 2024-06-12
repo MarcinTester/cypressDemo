@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "uiTests": "npx cypress run --spec 'cypress/integration/*'",
+    "uiTests": "npx cypress run --spec 'cypress/integration/ui/*' --headed",
     "uiTests-chrome": "npx cypress run --browser chrome --spec 'cypress/integration/ui/*'",
     "uiTests-firefox": "npx cypress run --browser firefox --spec 'cypress/integration/ui/*'",
     "uiTests-edge": "npx cypress run --browser edge --spec 'cypress/integration/ui/*'",
