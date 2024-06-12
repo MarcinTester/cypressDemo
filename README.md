@@ -39,7 +39,7 @@ npm run uiTests
 
 Run tests on specific browser: chrome, edge, firefox:
 ```
-npm run uiTests-Chrome
+npm run uiTests-chrome
 npm run uiTests-edge
 npm run uiTests-firefox
 ```

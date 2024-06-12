@@ -6,9 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "uiTests": "npx cypress run --spec 'cypress/integration/*'",
-    "uiTests-Chrome": "npx cypress run --browser chrome --spec 'cypress/integration/ui/*'",
-    "uiTests-Firefox": "npx cypress run --browser firefox --spec 'cypress/integration/ui/*'",
-    "uiTests-Edge": "npx cypress run --browser edge --spec 'cypress/integration/ui/*'",
+    "uiTests-chrome": "npx cypress run --browser chrome --spec 'cypress/integration/ui/*'",
+    "uiTests-firefox": "npx cypress run --browser firefox --spec 'cypress/integration/ui/*'",
+    "uiTests-edge": "npx cypress run --browser edge --spec 'cypress/integration/ui/*'",
     "CheckoutTest": "npx cypress run --spec 'cypress/integration/ui/CheckoutTest.js'",
     "LoginTests": "npx cypress run --spec 'cypress/integration/ui/LoginTests.js'",
     "NavigationTests": "npx cypress run --spec 'cypress/integration/ui/NavigationTests.js'"
