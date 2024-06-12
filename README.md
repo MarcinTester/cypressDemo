@@ -23,6 +23,13 @@ Install Cypress:
 npm install cypress --save-dev
 
 ```
+
+Install dependencies:
+
+```
+npm install
+
+```
 Open Cypress app:
 ```
 npx cypress open
