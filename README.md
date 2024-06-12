@@ -28,7 +28,6 @@ Install dependencies:
 
 ```
 npm install
-
 ```
 Open Cypress app:
 ```
