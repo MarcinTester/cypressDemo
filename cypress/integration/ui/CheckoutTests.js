@@ -23,7 +23,7 @@ describe("Checkout tests", function () {
     cy.visit("/");
   });
 
-  it.only("Order 4 products", () => {
+  it("Order 4 products", () => {
     cy.login(users.standard_user.username, users.standard_user.password);
     cy.addProducts(data.fourProductsOrder);
 
@@ -126,5 +126,8 @@ describe("Checkout tests", function () {
       .checkoutErrorMessage()
       .should("be.visible")
       .and("have.text", data.missingPostalCodeError);
+    checkoutPage.elements.checkoutErrorMessage().then(($el) => {
+      expect($el.text()).to.be.eq(data.missingPostalCodeError);
+    });
   });
 });
