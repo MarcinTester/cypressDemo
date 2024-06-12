@@ -23,7 +23,7 @@ describe("Checkout tests", function () {
     cy.visit("/");
   });
 
-  it.only("Order 4 products", () => {
+  it("Order 4 products", () => {
     cy.login(users.standard_user.username, users.standard_user.password);
     cy.addProducts(data.fourProductsOrder);
 

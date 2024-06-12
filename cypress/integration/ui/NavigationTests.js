@@ -21,7 +21,7 @@ describe("test", function () {
     cy.visit("/");
   });
 
-  it.only("Home page elements check", () => {
+  it("Home page elements check", () => {
     cy.login(users.standard_user.username, users.standard_user.password);
     homePage.elements.hamburgerMenu().should("be.visible");
     homePage.elements.addToCartButton().should("be.visible");
