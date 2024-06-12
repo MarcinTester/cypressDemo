@@ -42,7 +42,7 @@ describe("test", function () {
     loginPage.elements
       .errorMessage()
       .should("be.visible")
-      .should("contain.text", data.incorrectPasswordMessage);
+      .and("contain.text", data.incorrectPasswordMessage);
   });
 
   it("Login locked_out_user", () => {
@@ -51,6 +51,6 @@ describe("test", function () {
     loginPage.elements
       .errorMessage()
       .should("be.visible")
-      .should("contain.text", data.loginErrorText);
+      .and("contain.text", data.loginErrorText);
   });
 });

@@ -21,14 +21,15 @@ describe("test", function () {
     cy.visit("/");
   });
 
-  it.only("Home page elements check", () => {
+  it("Home page elements check", () => {
     cy.login(users.standard_user.username, users.standard_user.password);
     homePage.elements.hamburgerMenu().should("be.visible");
-    homePage.elements.addToCartButton().should("be.visible");
     homePage.elements
-      .productCard()
+      .addToCartButton()
       .should("be.visible")
-      .should("have.length", 6);
+      .and("have.css", "color", "rgb(19, 35, 34)")
+      .and("have.css", "font-weight", "500");
+    homePage.elements.productCard().should("be.visible").and("have.length", 6);
     homePage.elements.productPrice().each((element) => {
       cy.wrap(element).should("include.text", "$");
     });
@@ -41,11 +42,11 @@ describe("test", function () {
       productPage.elements
         .productName()
         .should("be.visible")
-        .should("have.text", product);
+        .and("have.text", product);
       productPage.elements
         .productPrice()
         .should("be.visible")
-        .should("include.text", "$");
+        .and("include.text", "$");
       productPage.backToProducts();
     });
   });
@@ -53,11 +54,16 @@ describe("test", function () {
   it("Add and remove 2 products from card", () => {
     cy.login(users.standard_user.username, users.standard_user.password);
     cy.addProduct(data.products[0]);
+    homePage.elements
+      .removeButton()
+      .should("be.visible")
+      .and("have.css", "color", "rgb(226, 35, 26)")
+      .and("have.css", "font-weight", "500");
     cy.addProduct(data.products[4]);
     homePage.elements
       .shoppingCartBadge()
       .should("be.visible")
-      .should("contain.text", "2");
+      .and("contain.text", "2");
 
     homePage.openCart();
 
@@ -76,7 +82,7 @@ describe("test", function () {
     homePage.elements
       .shoppingCartBadge()
       .should("be.visible")
-      .should("contain.text", "1");
+      .and("contain.text", "1");
 
     cartPage.removeFirstProduct();
     homePage.elements.shoppingCartBadge().should("not.exist");

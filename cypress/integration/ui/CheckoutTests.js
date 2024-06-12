@@ -31,7 +31,7 @@ describe("Checkout tests", function () {
     homePage.elements
       .shoppingCartBadge()
       .should("be.visible")
-      .should("contain.text", "4");
+      .and("contain.text", "4");
 
     homePage.openCart();
     data.fourProductsOrder.forEach(function (product) {
@@ -39,7 +39,7 @@ describe("Checkout tests", function () {
         .productName()
         .contains(product)
         .should("be.visible")
-        .should("have.text", product);
+        .and("have.text", product);
     });
     cartPage.proceedToCheckout();
     checkoutPage.provideFirstName(users.standard_user.firstName);
@@ -51,11 +51,11 @@ describe("Checkout tests", function () {
     checkoutPage.elements
       .completeHeader()
       .should("be.visible")
-      .should("have.text", data.completeHeader);
+      .and("have.text", data.completeHeader);
     checkoutPage.elements
       .completeText()
       .should("be.visible")
-      .should("have.text", data.completeText);
+      .and("have.text", data.completeText);
 
     checkoutPage.backToProducts();
 
@@ -67,7 +67,6 @@ describe("Checkout tests", function () {
     cy.login(users.standard_user.username, users.standard_user.password);
     homePage.openCart();
     cartPage.proceedToCheckout();
-
     checkoutPage.provideFirstName(users.standard_user.firstName);
     checkoutPage.provideLastName(users.standard_user.lastName);
     checkoutPage.providePostalCode(users.standard_user.postalCode);
@@ -85,7 +84,7 @@ describe("Checkout tests", function () {
     homePage.elements
       .shoppingCartBadge()
       .should("be.visible")
-      .should("contain.text", "1");
+      .and("contain.text", "1");
 
     homePage.openCart();
     cartPage.proceedToCheckout();
@@ -111,20 +110,20 @@ describe("Checkout tests", function () {
     checkoutPage.elements
       .checkoutErrorMessage()
       .should("be.visible")
-      .should("have.text", data.missingFirstNameError);
+      .and("have.text", data.missingFirstNameError);
 
     checkoutPage.provideFirstName(users.error_user.firstName);
     checkoutPage.continueToOverview();
     checkoutPage.elements
       .checkoutErrorMessage()
       .should("be.visible")
-      .should("have.text", data.missingLastNameError);
+      .and("have.text", data.missingLastNameError);
 
     checkoutPage.provideLastName(users.error_user.lastName);
     checkoutPage.continueToOverview();
     checkoutPage.elements
       .checkoutErrorMessage()
       .should("be.visible")
-      .should("have.text", data.missingPostalCodeError);
+      .and("have.text", data.missingPostalCodeError);
   });
 });
