@@ -23,7 +23,7 @@ describe("Checkout tests", function () {
     cy.visit("/");
   });
 
-  it("Order 4 products", () => {
+  it.only("Order 4 products", () => {
     cy.login(users.standard_user.username, users.standard_user.password);
     cy.addProducts(data.fourProductsOrder);
 
@@ -63,7 +63,7 @@ describe("Checkout tests", function () {
     homePage.elements.removeFleeceJacketButton().should("not.exist");
   });
 
-  it("Order empty cart", () => {
+  it("Try to order empty cart", () => {
     cy.login(users.standard_user.username, users.standard_user.password);
     homePage.openCart();
     cartPage.proceedToCheckout();

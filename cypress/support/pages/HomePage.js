@@ -1,7 +1,7 @@
 class HomePage {
   elements = {
     cartButton: () => cy.get('[data-test="shopping-cart-link"]'),
-    addToCartButton: () => cy.get('[data-test="add-to-cart-sauce-labs-bike-light"]'),
+    addToCartButton: () => cy.contains('Add to cart'),
     hamburgerMenu: () => cy.get('[data-test="open-menu"]'),
     logoutButton: () => cy.get('[data-test="logout-sidebar-link"]'),
     removeFleeceJacketButton: () => cy.get('[data-test="remove-sauce-labs-fleece-jacket"]'),
@@ -17,10 +17,6 @@ class HomePage {
 
   selectFromSortDrowpDown(option) {
     this.elements.sortDropdown().select(option);
-  }
-
-  removeFirstProduct() {
-    this.elements.removeButton().first().click();
   }
 
   removeFirstProduct() {

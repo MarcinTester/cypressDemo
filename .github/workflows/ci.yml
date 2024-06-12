@@ -12,11 +12,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "20"
-
       # Step 3: Install npm dependencies
       - name: Install dependencies
         run: npm install
-
       # Step 4: Run custom npm script
       - name: Run Cypress tests in Chrome
         run: npm run uiTests-chrome
