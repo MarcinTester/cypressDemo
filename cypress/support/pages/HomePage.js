@@ -44,9 +44,8 @@ class HomePage {
   }
 
   openProductPage(productName) {
-    this.elements.productName().contains(productName).click()
+    this.elements.productName().contains(productName).click();
   }
 }
-
 
 export default HomePage;

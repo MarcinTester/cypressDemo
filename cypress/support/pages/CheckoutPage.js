@@ -11,7 +11,6 @@ class CheckoutPage {
     checkoutErrorMessage: () => cy.get('[data-test="error"]'),
     xIcon: () => cy.get('[data-icon="times-circle"]'),
     productName: () => cy.get('data-test="inventory-item-name"'),
-    
   };
 
   provideFirstName(firstName) {

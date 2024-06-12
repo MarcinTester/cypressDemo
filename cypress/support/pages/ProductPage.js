@@ -13,7 +13,6 @@ class ProductPage {
   addToCart() {
     this.elements.addToCartButton().click();
   }
-
 }
 
 export default ProductPage;

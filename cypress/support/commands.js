@@ -14,9 +14,7 @@ Cypress.Commands.add("checkText", (locator, checkText) => {
 Cypress.Commands.add("addProduct", (productname) => {
   homePage.elements.itemDescription().each(($el, index) => {
     if ($el.text().includes(productname)) {
-      homePage.elements.itemAddToCartButton()
-        .eq(index)
-        .click();
+      homePage.elements.itemAddToCartButton().eq(index).click();
     }
   });
 });
