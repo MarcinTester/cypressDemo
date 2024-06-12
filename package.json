@@ -1,5 +1,5 @@
 {
-  "name": "apitestingcypress",
+  "name": "uiautomatedtests",
   "version": "1.0.0",
   "description": "Automated test for https://www.saucedemo.com/",
   "main": "index.js",

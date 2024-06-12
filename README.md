@@ -2,20 +2,19 @@
 
 Project contains automated tests of web page https://www.saucedemo.com/ with use of Cypress 
 Automates test cases:
-- Add and remove from card
-- Order all products
+- Order 4 products
+- Order empty cart
 - Order product with Error_user
-- Continue checkout without providing checkout information
+- Continue checkout without providing checkout all information
 - Login and logout standard_user
 - Login standard_user with incorrect password
 - Login locked_out_user
-- Home page elements quick check
-- Open all product pages
+- Home page elements check
+- Open all product pages and verify product name
+- Add and remove 2 products from card
 
 Requrements:
 Install Node.js
-
-
 
 Install Cypress:
 
