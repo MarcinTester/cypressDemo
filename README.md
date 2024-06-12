@@ -44,5 +44,6 @@ npm run uiTests-edge
 npm run uiTests-firefox
 ```
 
+
 ### Test Raport
 After each run, test raport is crated: cypress/reports
