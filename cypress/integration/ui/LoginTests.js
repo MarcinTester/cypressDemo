@@ -33,12 +33,14 @@ describe("test", function () {
     loginPage.elements.loginButton().should("be.visible");
   });
 
-  it("Login standard_user with incorrect password", () => {
+  it.only("Login standard_user with incorrect password", () => {
     cy.login(
       users.standard_user.username,
       users.standard_user.incorrcetPassword
     );
-
+    loginPage.elements.usernameTextField().should("be.visible");
+    loginPage.elements.passwordTextField().should("be.visible");
+    loginPage.elements.loginButton().should("be.visible");
     loginPage.elements
       .errorMessage()
       .should("be.visible")

@@ -23,7 +23,7 @@ describe("Checkout tests", function () {
     cy.visit("/");
   });
 
-  it("Order 4 products", () => {
+  it.only("Order 4 products", () => {
     cy.login(users.standard_user.username, users.standard_user.password);
     cy.addProducts(data.fourProductsOrder);
 
@@ -39,7 +39,8 @@ describe("Checkout tests", function () {
         .productName()
         .contains(product)
         .should("be.visible")
-        .and("have.text", product);
+        .and("have.text", product)
+        .and("have.class", "inventory_item_name");
     });
     cartPage.proceedToCheckout();
     checkoutPage.provideFirstName(users.standard_user.firstName);
