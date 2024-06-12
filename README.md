@@ -1,7 +1,6 @@
-# Cypress swagdemo tests
+# CypressTests test
 
-Project contains automated tests of web page https://www.saucedemo.com/ with use of Cypress.
-Test are executest with GitHub Actions after every new push.
+Project contains automated tests of web page https://www.saucedemo.com/ with use of Cypress 
 Automates test cases:
 - Order 4 products
 - Order empty cart
@@ -23,13 +22,6 @@ Install Cypress:
 npm install cypress --save-dev
 
 ```
-Install dependencies
-
-```
-npm install
-
-```
-
 Open Cypress app:
 ```
 npx cypress open
@@ -52,6 +44,9 @@ npm run uiTests-edge
 npm run uiTests-firefox
 ```
 
-
 ### Test Raport
 After each run, test raport is crated: cypress/reports
+
+### In progress
+- visual tests
+- parallel tests with cypress-split and github actions
