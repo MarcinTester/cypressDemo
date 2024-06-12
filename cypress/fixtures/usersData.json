@@ -17,12 +17,5 @@
     "postalCode": "45-435",
     "username": "error_user",
     "password": "secret_sauce"
-  },
-  "performance_glitch_user": {
-    "firstName": "John",
-    "lastName": "Performeence",
-    "postalCode": "67-890",
-    "username": "performance_glitch_user",
-    "password": "secret_sauce"
   }
 }
