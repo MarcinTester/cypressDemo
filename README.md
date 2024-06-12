@@ -23,7 +23,6 @@ Install Cypress:
 
 ```
 npm install cypress --save-dev
-
 ```
 
 Install dependencies:
