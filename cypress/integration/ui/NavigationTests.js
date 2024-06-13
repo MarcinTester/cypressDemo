@@ -2,7 +2,7 @@
 import HomePage from "../../support/pages/HomePage";
 import CartPage from "../../support/pages/CartPage";
 import ProductPage from "../../support/pages/ProductPage";
-describe("test", function () {
+describe("Navigation tests", function () {
   let data;
   let users;
   const homePage = new HomePage();

@@ -1,7 +1,7 @@
 /// <reference types="Cypress" />
 import HomePage from "../../support/pages/HomePage";
 import LoginPage from "../../support/pages/LoginPage";
-describe("test", function () {
+describe("Login tests", function () {
   let data;
   let users;
   const homePage = new HomePage();
