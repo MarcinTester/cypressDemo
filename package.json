@@ -16,7 +16,7 @@
   "author": "Marcin Łykowski",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^13.11.0",
+    "cypress": "^13.17.0",
     "cypress-mochawesome-reporter": "^3.8.2",
     "cypress-split": "^1.24.0",
     "mocha": "^10.4.0",
